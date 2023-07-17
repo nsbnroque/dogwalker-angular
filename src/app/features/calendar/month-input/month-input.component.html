@@ -1,0 +1,5 @@
+<span>
+    <select [formControl]="selectedMonth" (change)="onMonthChange()" class="title-bar__month block appearance-none w-full bg-white border border-gray-300 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-white-500 focus:ring-2 focus:ring-white-500">
+      <option *ngFor="let month of months" [value]="months.indexOf(month)">{{ month }}</option>
+    </select>
+</span>

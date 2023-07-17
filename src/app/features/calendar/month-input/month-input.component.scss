@@ -1,0 +1,37 @@
+.title-bar__month {
+    position: relative;
+    float: left;
+    font-size: 1rem;
+    line-height: 30px;
+    width: 22%;
+    padding: 0 0.5rem;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, "Helvetica Neue", sans-serif;
+  
+    @media screen and (min-width: 55em) {
+      width: 12%;
+    }
+  
+  }
+  
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .title-bar__month option {
+    /* Estilos para os itens do dropdown */
+    background-color: #fff;
+  }
+  
+  .title-bar__month option:checked {
+    /* Estilos para o item selecionado no dropdown */
+    background-color: #fd588a;
+  }
+  
+  .title-bar__month:focus {
+    /* Estilos quando o dropdown está em foco */
+    background-color: #fff;
+  }

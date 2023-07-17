@@ -1,1 +1,181 @@
-/* You can add global styles to this file, and also import other style files */
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$the-dogwalker-primary: mat.define-palette(mat.$indigo-palette);
+$the-dogwalker-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$the-dogwalker-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$the-dogwalker-theme: mat.define-light-theme((
+  color: (
+    primary: $the-dogwalker-primary,
+    accent: $the-dogwalker-accent,
+    warn: $the-dogwalker-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($the-dogwalker-theme);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.full-width {
+  width: 100%;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$black: #040605;
+$white: #f5f7f6;
+$blue-white: #e1e7e8;
+$pink: #fd588a;
+$tangerine: #f86a6c;
+
+$accent-palette: (
+  50: #fef4f4,
+  100: #fed7d7,
+  200: #febab9,
+  300: #fe9d9c,
+  400: #fe8080,
+  500: #f86a6c,
+  600: #fe7e7e,
+  700: #fe5b5c,
+  800: #fe3839,
+  900: #fe1516,
+  A100: #ffffff,
+  A200: #ffbebe,
+  A400: #ff8c8c,
+  A700: #ff7373,
+  contrast: (
+    50: #040605,
+    100: #040605,
+    200: #040605,
+    300: #040605,
+    400: #040605,
+    500: #040605,
+    600: #f5f7f6,
+    700: #f5f7f6,
+    800: #f5f7f6,
+    900: #f5f7f6,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #ffffff,
+  )
+);
+
+$primary-palette: (
+  50: #EEF2E6,
+  100: #ffebe1,
+  200: #D6CDA4,
+  300: #ffd7b8,
+  400: #ffceaa,
+  500: #fd588a,
+  600: #e3c5ab,
+  700: #dacda2,
+  800: #d2c499,
+  900: #f53f76,
+  A100: #ffffff,
+  A200: #ffe8df,
+  A400: #ffbfb0,
+  A700: #ffab9a,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  )
+);
+
+
+$red: (
+  50: #fbeae9,
+  100: #f7c6c2,
+  200: #f49f99,
+  300: #f17771,
+  400: #ee5049,
+  500: #eb2822,
+  600: #d0231e,
+  700: #ae1c19,
+  800: #8c1615,
+  900: #69100f,
+  A100: #ffdddc,
+  A200: #ffaaaa,
+  A400: #ff7777,
+  A700: #ff5555,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff,
+  )
+);
+
+// Configurar a paleta de cores
+
+$my-primary: mat.define-palette($primary-palette,500);
+$my-accent: mat.define-palette($accent-palette, A700, A100, 400);
+
+// The "warn" palette is optional and defaults to red if not specified.
+$my-warn: mat.define-palette($red,800);
+
+$my-theme: mat.define-light-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+   warn: $my-warn,
+ ),
+ typography: mat.define-typography-config(),
+ density: 0,
+));
+@include mat.core-theme($my-theme);
+
+// Emit styles for MatButton based on `$my-theme`. Because the configuration
+// passed to `define-light-theme` omits typography, `button-theme` will not
+// emit any typography styles.
+@include mat.button-theme($my-theme);
+
+@include mat.all-component-themes($my-theme);
+
+
